@@ -1,0 +1,143 @@
+{
+  description = "Zoki workbook";
+
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, ... }:
+  let
+    configuration = { pkgs, ... }: {
+      nixpkgs.config = {
+        allowUnfree = true;
+      };
+      # List packages installed in system profile. To search by name, run:
+      # $ nix-env -qaP | grep wget
+      environment.systemPackages =
+        [ 
+          pkgs.vim
+          pkgs.vscode
+        ];
+        
+      # Auto upgrade nix package and the daemon service.
+      services.nix-daemon.enable = true;
+      # nix.package = pkgs.nix;
+
+      # Necessary for using flakes on this system.
+      nix.settings.experimental-features = "nix-command flakes";
+
+      # Create /etc/zshrc that loads the nix-darwin environment.
+      programs.zsh.enable = true;  # default shell on catalina
+      # programs.fish.enable = true;
+
+      # Set Git commit hash for darwin-version.
+      system.configurationRevision = self.rev or self.dirtyRev or null;
+
+      # Used for backwards compatibility, please read the changelog before changing.
+      # $ darwin-rebuild changelog
+      system.stateVersion = 4;
+
+      # The platform the configuration will be used on.
+      nixpkgs.hostPlatform = ${system};
+      security.pam.enableSudoTouchIdAuth = true;
+
+      users.users.${user} = {
+        name = ${user};
+        home = "/Users/jh";
+      };
+      nix.useDaemon = true;
+
+      system.defaults = {
+        dock.autohide = true;
+        dock.mru-spaces = false;
+        finder.AppleShowAllExtensions = true;
+        finder.FXPreferredViewStyle = "clmv";
+        loginwindow.LoginwindowText = "Zoki workbook";
+        screencapture.location = "~/Pictures/screenshots";
+      };
+
+      homebrew = {
+        enable = true;
+        taps = [];
+        brews = [ "imagemagick" ];
+        casks = [
+          "raycast"
+          "google-chrome"
+
+          # Communication
+          "slack"
+          "discord"
+          "microsoft-teams"
+
+          # Coding
+          # "visual-studio-code"
+
+        ];
+      };
+    };
+    homeconfig = { pkgs, ...}: {
+      # this is internal compatibility configuration 
+      # for home-manager, don't change this!
+      home.stateVersion = "23.05";
+      # Let home-manager install and manage itself.
+      programs.home-manager.enable = true;
+
+      programs.zsh = {
+        enable = true;
+        shellAliases = {
+          switch = "darwin-rebuild switch --flake ~/.config/nix-darwin";
+        };
+      };
+      programs.git = {
+        enable = true;
+        userName = "Joakim Hall";
+        userEmail = "joakim.hall@devoteam.com";
+        ignores = [ ".DS_Store" ];
+        extraConfig = {
+          init.defaultBranch = "main";
+          push.autoSetupRemote = true;
+        };
+      };
+      programs.vscode = {
+        enable = true;
+        package = pkgs.vscode.fhs
+      }
+
+      home.packages = with pkgs; [];
+
+      home.sessionVariables = {
+          EDITOR = "vim";
+      };
+
+      home.file = {
+        ".vimrc".source = ./vim_configuration;
+      };
+    };
+  in
+  {
+    # Build darwin flake using:
+    # $ darwin-rebuild build --flake .#jh-mbp
+    darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
+      modules = [ 
+        configuration 
+        home-manager.darwinModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.verbose = true;
+          home-manager.users.jh = homeconfig;
+        }
+      ];
+    };
+
+    # Expose the package set, including overlays, for convenience.
+    darwinPackages = self.darwinConfigurations.${hostname}.pkgs;
+  };
+}
