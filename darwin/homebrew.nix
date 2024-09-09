@@ -2,10 +2,14 @@
   homebrew = {
     enable = true;
     global = { autoUpdate = false; };
-    # will not be uninstalled when removed
-    masApps = {
-      Xcode = 497799835;
-    };
+    # These app IDs are from using the mas CLI app
+    # mas = mac app store
+    # https://github.com/mas-cli/mas
+    #
+    # $ nix shell nixpkgs#mas
+    # $ mas search <app name>
+    #
+    masApps = { };
     onActivation = {
       # "zap" removes manually installed brews and casks
       cleanup = "zap";
@@ -13,7 +17,8 @@
       upgrade = false;
     };
     brews = [ 
-      "gpg"
+      "pinentry-mac" # gpg
+      "gpg2" # gpg
     ];
     casks = [
       # coding
