@@ -1,5 +1,5 @@
 { ... }: {
-    programs.iterm2 = {
+    programs.starship = {
         enable = true;
     };
 }
