@@ -3,6 +3,7 @@
     ./zsh.nix
     ./git.nix
     ./tmux.nix
+    ./zellij.nix
   ];
 
   home = {
@@ -27,6 +28,7 @@
       gh # github cli tool
       httpie # awesome alternative to curl
       corepack # node wrappers
+      gnupg
 
       # gnu binaries
       coreutils-full # multiple tools

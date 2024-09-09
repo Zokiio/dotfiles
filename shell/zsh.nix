@@ -38,6 +38,7 @@
     initExtra = ''
       # used for homebrew
       export XDG_DATA_DIRS=$XDG_DATA_DIRS:/opt/homebrew/share
+      export GPG_TTY=$(tty)
 
       function cd() {
         builtin cd $*

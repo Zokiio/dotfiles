@@ -7,6 +7,8 @@
     historyLimit = 10000;
     keyMode = "vi";
     terminal = "screen-256color";
-    extraConfig = lib.strings.fileContents ./tmux.conf;
+    # lib.strings.fileContents reads the content of a file 
+    # and returns it as a string
+    # extraConfig = lib.strings.fileContents ./tmux.conf;
   };
 }
