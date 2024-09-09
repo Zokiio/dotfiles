@@ -15,11 +15,29 @@
       share = true;
     };
 
+
+    # This file contains the configuration for the Zsh shell.
+    # It defines various functions and environment variables.
+
+    # The `initExtra` function sets up additional configurations for the shell.
+    # It exports the `XDG_DATA_DIRS` environment variable to include the Homebrew share directory.
+    # It also defines several utility functions:
+    # - `cd`: A wrapper around the built-in `cd` command that also runs `lsd` afterwards.
+    # - `mkd`: Creates a directory and changes into it.
+    # - `take`: Changes into a temporary directory created by `mktemp`.
+    # - `vit`: Opens a new file in Neovim using `mktemp`.
+    # - `clone`: Clones a Git repository using the provided URL.
+    # - `gclone`: Clones a GitHub repository using the provided repository name.
+    # - `bclone`: Clones a specific repository under the `breuerfelix` GitHub account.
+    # - `gsm`: Executes a command in each submodule of a Git repository.
+    # - `lgc`: Commits changes with a sign-off message.
+    # - `lg`: Adds all changes, commits with a sign-off message, and pushes to the remote repository.
+    # - `pfusch`: Amends the last commit, forces a push with lease.
+    # - `dci`: Inspects a Docker container using `docker-compose`.
+    # - `lmr`: Creates a merge request using the current branch name, ticket number, and squad name.
     initExtra = ''
       # used for homebrew
       export XDG_DATA_DIRS=$XDG_DATA_DIRS:/opt/homebrew/share
-
-      sudo xcodebuild -license
 
       function cd() {
         builtin cd $*
@@ -65,11 +83,8 @@
       psf = "ps -aux | grep";
       lsf = "ls | grep";
 
-      weather = "curl -4 http://wttr.in/Koeln";
-
       # nix
-      ne = "nvim -c ':cd ~/.nixpkgs' ~/.nixpkgs";
-      switch = "darwin-rebuild switch --flake ~/.config/nix-darwin";
+      switch = "nix run nix-darwin -- switch --flake ~/.config/nix";
       clean =
         "nix-collect-garbage -d && nix-store --gc && nix-store --verify --check-contents && nix store optimise";
       nsh = "nix-shell";
