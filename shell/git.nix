@@ -18,7 +18,7 @@
         contents.user.email = "joakim.hall@@inter.ikea.com";
       }
     ];
-    # hooks = { prepare-commit-msg = ./rtl-hook.sh; };
+    hooks = { prepare-commit-msg = ./rtl-hook.sh; };
     aliases = {
       cm = "commit";
       ca = "commit --amend --no-edit";
