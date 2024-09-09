@@ -2,10 +2,13 @@
   imports = [
     ./zsh.nix
     ./git.nix
+    ./tmux.nix
   ];
 
   home = {
     packages = with pkgs; [
+      neovim
+
       # net tools
       bind
       nmap
