@@ -35,9 +35,7 @@
         autohide-time-modifier = 0.0;
         orientation = "bottom";
         dashboard-in-overlay = true;
-        largesize = 85;
-        tilesize = 50;
-        magnification = true;
+        tilesize = 30;
         launchanim = false;
         mru-spaces = false;
         show-recents = false;
