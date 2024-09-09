@@ -3,16 +3,18 @@
     enable = true;
     global = { autoUpdate = false; };
     # will not be uninstalled when removed
-    # masApps = {
-    #   Xcode = 497799835;
-    # };
+    masApps = {
+      Xcode = 497799835;
+    };
     onActivation = {
       # "zap" removes manually installed brews and casks
       cleanup = "zap";
       autoUpdate = false;
-      upgrade = false; 
+      upgrade = false;
     };
-    brews = [ ];
+    brews = [ 
+      "gpg"
+    ];
     casks = [
       # coding
       "intellij-idea"
