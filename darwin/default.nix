@@ -6,6 +6,12 @@
       EDITOR = "nvim";
       VISUAL = "nvim";
     };
+    # This makes TouchId available in tmux
+    etc."pam.d/sudo_local".text = ''
+      # Managed by Nix Darwin
+      auth       optional       ${pkgs.pam-reattach}/lib/pam/pam_reattach.so ignore_ssh # nix-darwin: security.pam.enableSudoTouchIdAuth
+      auth       sufficient     pam_tid.so # nix-darwin: security.pam.enableSudoTouchIdAuth
+    '';
   };
 
   programs = { zsh.enable = true; };
