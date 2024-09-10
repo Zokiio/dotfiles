@@ -36,6 +36,7 @@
       "1password" # password manager
       "1password-cli"
       "proton-mail"
+      "yaak"
 
       "raycast" # launcher on steroids
       "obsidian" # zettelkasten
