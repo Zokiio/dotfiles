@@ -42,40 +42,89 @@
         };
         size = 14;
       };
-      # nord theme
+
+      # Catppuccin Frappe Theme
       colors = {
         primary = {
-          background = "0x1a1b26";
-          foreground = "0xc0caf5";
+          background = "#303446";
+          foreground = "#c6d0f5";
+          dim_foreground = "#838ba7";
+          bright_foreground = "#c6d0f5";
+        };
+        cursor = {
+          text = "#303446";
+          cursor = "#f2d5cf";
+        };
+        vi_mode_cursor = {
+          text = "#303446";
+          cursor = "#babbf1";
+        };
+        search = {
+          matches = {
+            foreground = "#303446";
+            background = "#a5adce";
+          };
+          focused_match = {
+            foreground = "#303446";
+            background = "#a6d189";
+          };
+        };
+        footer_bar = {
+          foreground = "#303446";
+          background = "#a5adce";
+        };
+        hints = {
+          start = {
+            foreground = "#303446";
+            background = "#e5c890";
+          };
+          end = {
+            foreground = "#303446";
+            background = "#a5adce";
+          };
+        };
+        selection = {
+          text = "#303446";
+          background = "#f2d5cf";
         };
         normal = {
-          black = "0x15161e";
-          red = "0xf7768e";
-          green = "0x9ece6a";
-          yellow = "0xe0af68";
-          blue = "0x7aa2f7";
-          magenta = "0xbb9af7";
-          cyan = "0x7dcfff";
-          white = "0xa9b1d6";
+          black = "#51576d";
+          red = "#e78284";
+          green = "#a6d189";
+          yellow = "#e5c890";
+          blue = "#8caaee";
+          magenta = "#f4b8e4";
+          cyan = "#81c8be";
+          white = "#b5bfe2";
         };
         bright = {
-          black = "0x414868";
-          red = "0xf7768e";
-          green = "0x9ece6a";
-          yellow = "0xe0af68";
-          blue = "0x7aa2f7";
-          magenta = "0xbb9af7";
-          cyan = "0x7dcfff";
-          white = "0xc0caf5";
+          black = "#626880";
+          red = "#e78284";
+          green = "#a6d189";
+          yellow = "#e5c890";
+          blue = "#8caaee";
+          magenta = "#f4b8e4";
+          cyan = "#81c8be";
+          white = "#a5adce";
+        };
+        dim = {
+          black = "#51576d";
+          red = "#e78284";
+          green = "#a6d189";
+          yellow = "#e5c890";
+          blue = "#8caaee";
+          magenta = "#f4b8e4";
+          cyan = "#81c8be";
+          white = "#b5bfe2";
         };
         indexed_colors = [
           {
             index = 16;
-            color = "0xff9e64";
+            color = "#ef9f76";
           }
           {
             index = 17;
-            color = "0xdb4b4b";
+            color = "#f2d5cf";
           }
         ];
       };
