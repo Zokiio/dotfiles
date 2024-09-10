@@ -19,6 +19,7 @@
     brews = [ 
       "pinentry-mac" # gpg
       "gpg2" # gpg
+      "imagemagick" # image processing
     ];
     casks = [
       # coding
