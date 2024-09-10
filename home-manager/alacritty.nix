@@ -23,8 +23,10 @@
       mouse = {
         hide_when_typing = true;
       };
-
-      font = let fontname = "JetBrainsMono Nerd Font"; 
+      env = {
+        TERM = "xterm-256color";
+      };
+      font = let fontname = "FiraCode Nerd Font"; 
       in {
         normal = {
           family = fontname;
@@ -38,7 +40,7 @@
           family = fontname;
           style = "ExtraLight";
         };
-        size = 17;
+        size = 14;
       };
       # nord theme
       colors = {
