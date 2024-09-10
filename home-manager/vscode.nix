@@ -1,6 +1,6 @@
 { ... }: {
-  programs.visual-studio-code = {
-    enable = false;
+  programs.vscode = {
+    enable = true;
     userSettings = {
       editor.fontFamily = "'FiraCode Nerd Font', 'JetBrains Mono', monospace";
     };
