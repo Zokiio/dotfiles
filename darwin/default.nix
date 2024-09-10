@@ -12,7 +12,10 @@
 
   fonts = {
     packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      (nerdfonts.override { fonts = [ 
+        "JetBrainsMono"
+        "FiraCode" 
+      ]; })
       sketchybar-app-font
     ];
   };
