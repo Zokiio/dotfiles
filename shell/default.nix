@@ -120,13 +120,14 @@
     # pretty prompt
     starship = {
       enable = true;
-      settings = {
-        add_newline = false;
-        character = {
-          success_symbol = "[➜](bold green)";
-          error_symbol = "[✗](bold red)";
-        };
-      };
+      settings = pkgs.lib.importTOML ./starship.toml;
+      # {
+      #   add_newline = false;
+      #   character = {
+      #     success_symbol = "[➜](bold green)";
+      #     error_symbol = "[✗](bold red)";
+      #   };
+      # };
     };
 
     # pretty ls
