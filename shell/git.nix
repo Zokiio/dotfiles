@@ -15,7 +15,7 @@
       }
       {
         condition = "gitdir:~/code/inter/";
-        contents.user.email = "joakim.hall@@inter.ikea.com";
+        contents.user.email = "joakim.hall@inter.ikea.com";
       }
     ];
     hooks = { prepare-commit-msg = ./rtl-hook.sh; };
