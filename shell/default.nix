@@ -16,29 +16,29 @@
       inetutils
 
       # core
-      openssl
-      wget
-      curl
-      fd
-      ripgrep # fast search
+      openssl   # crypto
+      wget      # download
+      curl      # download
+      fd        # fast search
+      ripgrep   # fast search
 
-      grc # colored log output
+      grc               # colored log output
       gitAndTools.delta # pretty diff tool
-      sshfs # mount folders via ssh
-      gh # github cli tool
-      httpie # awesome alternative to curl
-      corepack # node wrappers
-      gnupg
+      sshfs             # mount folders via ssh
+      gh                # github cli tool
+      httpie            # awesome alternative to curl
+      corepack          # node wrappers
+      gnupg             # gpg
 
       # gnu binaries
-      coreutils-full # multiple tools
+      coreutils-full    # multiple tools
 
       # cloud
-      google-cloud-sdk
-      awscli2
-      
-      ## node
-      deno # node runtime
+      google-cloud-sdk  # gcloud
+      awscli2           # aws cli
+
+      ## javascript
+      deno
       nodejs
 
       ## golang
