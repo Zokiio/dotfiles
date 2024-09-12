@@ -16,7 +16,7 @@
       autoUpdate = false;
       upgrade = false;
     };
-    brews = [ 
+    brews = [
       "pinentry-mac" # gpg
       "gpg2" # gpg
       "imagemagick" # image processing
@@ -41,9 +41,15 @@
 
       "raycast" # launcher on steroids
       "obsidian" # zettelkasten
-      "arc" # mac browser
+
       "visual-studio-code" # code editor
       "zed" # vim like editor
+
+      # browsers
+      "google-chrome"
+      "arc"
+      "firefox@developer-edition"
+      "zen-browser"
     ];
     taps = [
       # default
