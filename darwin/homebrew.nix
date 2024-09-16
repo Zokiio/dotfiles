@@ -24,7 +24,8 @@
     casks = [
       # coding
       "intellij-idea"
-
+      "temurin@17"
+      
       # virtualization
       "podman-desktop" # docker desktop
 
