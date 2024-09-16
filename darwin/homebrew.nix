@@ -25,7 +25,7 @@
       # coding
       "intellij-idea"
       "temurin@17"
-      
+
       # virtualization
       "podman-desktop" # docker desktop
 
@@ -38,7 +38,8 @@
       "1password" # password manager
       "1password-cli"
       "proton-mail"
-      "yaak"
+      "yaak" # api testing
+      "postman" # api testing
 
       "raycast" # launcher on steroids
       "obsidian" # zettelkasten
