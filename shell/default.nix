@@ -43,6 +43,10 @@
 
       ## golang
       golangci-lint
+
+      ## python
+      python3
+      python3Packages.pipx
     ];
 
     shellAliases = {
